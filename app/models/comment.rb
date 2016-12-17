@@ -1,8 +1,4 @@
 class Comment < ActiveRecord::Base
-  include PgSearch
-  multisearchable against: :body,
-                  if: :not_premium
-
   acts_as_nested_set scope: [:commentable_id, :commentable_type]
 
   validates :body, presence: true

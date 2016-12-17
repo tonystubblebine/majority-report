@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
-gem 'pg'
+gem 'mysql2', '~> 0.3.20'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -73,5 +73,5 @@ gem 'rest-client'
 gem 'active_model_serializers', '>=0.10.x'
 gem 'jwt'
 gem 'jquery-ui-rails'
-gem 'pg_search'
+#gem 'pg_search'
 gem 'doorkeeper'

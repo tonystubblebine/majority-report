@@ -1,12 +1,12 @@
 development:
-  adapter: postgresql
+  adapter: mysql2
   database: phez_development
   encoding: utf8
   pool: 5
   timeout: 5000
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   database: phez_test
   encoding: utf8
   pool: 5

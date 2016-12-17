@@ -1,8 +1,4 @@
 class Post < ActiveRecord::Base
-  include PgSearch
-  multisearchable against: [:title, :url, :body],
-                  if: :not_premium
-
   acts_as_commentable
   belongs_to :user
   belongs_to :subphez

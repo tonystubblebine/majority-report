@@ -137,15 +137,11 @@ GEM
     minitest-around (0.3.2)
       minitest (~> 5.0)
     multi_json (1.11.2)
+    mysql2 (0.3.21)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
-    pg (0.18.2)
-    pg_search (1.0.4)
-      activerecord (>= 3.1)
-      activesupport (>= 3.1)
-      arel
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -291,8 +287,7 @@ DEPENDENCIES
   jwt
   less-rails
   minitest-around
-  pg
-  pg_search
+  mysql2 (~> 0.3.20)
   pry
   rails (= 4.2.3)
   recaptcha
@@ -312,3 +307,6 @@ DEPENDENCIES
   web-console (~> 2.0)
   whenever
   will_paginate (~> 3.0.6)
+
+BUNDLED WITH
+   1.12.5
