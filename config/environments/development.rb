@@ -44,4 +44,6 @@ Rails.application.configure do
   # Uncomment these lines when testing locally using mailcatcher:
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  ENV['RECAPTCHA_PUBLIC_KEY'] = '6LcAEg8UAAAAAPX_2GkhRS_cj-5YjZtyP2Mg87Xi'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcAEg8UAAAAAA5AUEiu57KotpfS7tchRlPW7jz_'
 end
