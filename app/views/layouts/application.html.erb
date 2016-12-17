@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? "#{yield(:title)} :: Phez" : "Phez" %></title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} :: Majority Report" : "Majority Report" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -30,7 +30,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Phez</a>
+        <a class="navbar-brand" href="/">Majority Report</a>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -79,7 +79,7 @@
       <%= render :partial => 'shared/bitcoin' %>
 
       <footer>
-        <p>&copy; Phez.co <%= Time.now.year %> |
+        <p>&copy; Majority.Report <%= Time.now.year %> |
           <%= link_to 'source code', 'https://github.com/phezco/phez' %> |
           <%= link_to 'privacy policy', privacy_home_index_path %> |
           <%= link_to 'api', apidocs_home_index_path %> |
