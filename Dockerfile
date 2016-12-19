@@ -22,7 +22,5 @@ RUN bundle config build.nokogiri --use-system-libraries && \
     # Precompile Rails assets.
     RAILS_ENV=production bundle exec rake assets:precompile
 
-EXPOSE 3000
-
 # Run your application with Puma.
 CMD puma -e production
