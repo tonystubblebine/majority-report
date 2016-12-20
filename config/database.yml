@@ -4,7 +4,7 @@ production:
   host:      <%= ENV["DATABASE_HOST"] %>
   port: 3306
   adapter: mysql2
-  database: mp_production
+  database: <%= ENV["DATABASE_NAME"] %>
   encoding: utf8
   pool: 5
   timeout: 5000
