@@ -1,12 +1,8 @@
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
 production:
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
-  url:      <%= ENV["DATABASE_URL"] %>
+  host:      <%= ENV["DATABASE_HOST"] %>
+  port: 3306
   adapter: mysql2
   database: mp_production
   encoding: utf8
@@ -17,7 +13,7 @@ development:
   username: root
   password: password
   adapter: mysql2
-  database: mp_development
+  database: mp_production
   encoding: utf8
   pool: 5
   timeout: 5000
