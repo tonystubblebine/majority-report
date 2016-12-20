@@ -20,8 +20,9 @@ RUN bundle config build.nokogiri --use-system-libraries && \
     # Install application gems.
     bundle install --jobs 4 --without development test --with production && \
     # Precompile Rails assets.
-    RAILS_ENV=production bundle exec rake assets:precompile && \
-    RAILS_ENV=production rake db:migrate
+    RAILS_ENV=production bundle exec rake assets:precompile
+   
+CMD RAILS_ENV=production rake db:migrate
 
 # Run your application with Puma.
-CMD puma -e production
+#CMD puma -e production
