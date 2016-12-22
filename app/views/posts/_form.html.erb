@@ -5,16 +5,13 @@
   <% if @post.new_record? %>
 
     <div class="field">
-      <%= f.label :url %><br>
+      <%= f.label :url, "URL" %><br>
       <%= f.text_field :url, class: 'title-field' %> <br/>
       <i>Leave URL field blank to submit a self post (discussion thread)</i>
     </div>
     <div class="field">
       <%= f.label :title %><br>
       <%= f.text_field :title, class: 'title-field' %>
-    </div>
-    <div style="padding-bottom: 7px;">
-      <%= link_to 'Suggest Title', 'javascript:Phez.suggestTitle()', class: 'btn btn-primary btn-sm' %>
     </div>
   <% else %>
     <p>Only the body of self posts can be edited.</p>
@@ -31,19 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="field">
-    <label>Submit to Subphez</label><br>
-    <%= text_field_tag 'subphez_path', @subphez ? @subphez.path : '', :required => true %> <br/>
-    <% if current_user.subscribed_subphezes.any? %>
-      <br/>
-      <p>Select from your subscribed subphezes:</p>
-      <div style="width: 40em">
-        <% current_user.subscribed_subphezes.order('path ASC').each do |subphez| %>
-          <%= link_to subphez.path, "javascript:Phez.pickSubphez('#{subphez.path}')" %> &nbsp;&nbsp;
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= hidden_field_tag 'subphez_path', 'main', :required => true %> <br/>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>

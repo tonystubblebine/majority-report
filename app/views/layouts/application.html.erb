@@ -44,7 +44,7 @@
                   Hello, <%= current_user.username %>
                 </a>
               </li>
-              <li><%= link_to 'My Profile', build_profile_path(current_user) %></li>
+              <li><%= link_to 'Submit', "/submit" %></li>
               <li><%= link_to 'Sign Out', "/logout", :method => :delete %></li>
             <% else %>
               <li><%= link_to 'Login / Sign Up', "/login" %></li>
