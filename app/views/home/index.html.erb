@@ -1,11 +1,5 @@
 <% title('Home') %>
 
-<% if !current_user %>
-  <%= render partial: 'shared/subscribe' %>
-<% end %>
-
-<br/>
-
 <% if current_user %>
   <div class="well subphez-heading-well">
     <ul class="list-inline">
