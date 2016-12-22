@@ -64,7 +64,10 @@ group :test do
   gem 'simplecov', require: false
 end
 
-gem 'devise'
+gem 'big_library', :git => "git://github.com/tonystubblebine/big_library.git", :require => 'big_library'
+gem 'big_auth', :git => "git://github.com/tonystubblebine/big_auth.git", :require => 'big_auth'
+#gem 'big_auth', :path => '/Users/tony/projects/big_auth', :require => 'big_auth'
+
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'redcarpet'
@@ -72,7 +75,6 @@ gem 'font-awesome-rails'
 gem 'acts_as_commentable_with_threading'
 gem 'whenever', require: false
 gem 'will_paginate', '~> 3.0.6'
-gem 'recaptcha'
 gem 'figaro'
 gem 'exception_notification'
 gem 'rest-client'

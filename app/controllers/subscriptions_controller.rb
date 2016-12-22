@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
   before_action :set_subphez
 
   def create

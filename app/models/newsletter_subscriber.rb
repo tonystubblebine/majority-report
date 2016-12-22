@@ -1,5 +1,4 @@
 class NewsletterSubscriber < ActiveRecord::Base
-  validates_format_of :email, with: Devise.email_regexp
   validates :email, uniqueness: true
 
   before_create :set_secret

@@ -1,5 +1,5 @@
 class CommentVotesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
   before_action :set_comment
   before_action :frozen_check!
 

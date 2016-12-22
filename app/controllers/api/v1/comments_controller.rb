@@ -1,6 +1,6 @@
 class Api::V1::CommentsController < Api::V1::BaseController
   before_action :doorkeeper_authorize!
-  before_action :authenticate_user!
+  before_action :require_user
 
   def create
     @post = Post.find(params[:post_id])

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
 
   def subscriptions
     @subphezes = current_user.subscribed_subphezes

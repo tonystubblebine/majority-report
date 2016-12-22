@@ -1,6 +1,6 @@
 class CreditsController < ApplicationController
-  before_action :authenticate_user!, except: [:leaderboard]
-  before_action :require_admin!, except: [:leaderboard]
+  before_action :require_user, except: [:leaderboard]
+  before_action :require_super_user, except: [:leaderboard]
   before_action :setup_vars
   before_action :setup_users
   before_filter :setup_earnings_hash, except: [:leaderboard]

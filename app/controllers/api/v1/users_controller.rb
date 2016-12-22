@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
   before_action :doorkeeper_authorize!
-  before_action :authenticate_user!
+  before_action :require_user
 
   def details
     json = { 'username' => current_resource_owner.username,

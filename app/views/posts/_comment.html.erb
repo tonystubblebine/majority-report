@@ -1,6 +1,6 @@
 <%
 @upvoted, @downvoted = false, false
-if user_signed_in?
+if current_user
   @vote = CommentVote.voted(current_user, @comment)
   if @vote
     @upvoted = @vote.upvote?
@@ -37,7 +37,7 @@ end
 
   <div class="comment-actions" id="comment-<%= @comment.id %>-actions">
     <%= link_to 'permalink', "#{build_post_path(@comment.commentable)}##{@comment.id}" %> &nbsp;
-    <% if user_signed_in? %>
+    <% if current_user %>
 
       <% if !@comment.is_deleted and @comment.owner?(current_user) %>
         <%= link_to 'edit', "javascript:Phez.edit(#{@comment.id})" %> &nbsp;

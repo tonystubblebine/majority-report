@@ -1,5 +1,5 @@
 class SubphezesController < ApplicationController
-  before_action :authenticate_user!,
+  before_action :require_user,
                 except: [:index, :show, :latest, :autocomplete, :random]
   before_action :set_subphez, only: [:edit, :update, :destroy]
   before_action :set_subphez_by_path,

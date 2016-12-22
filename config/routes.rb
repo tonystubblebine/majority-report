@@ -140,7 +140,7 @@ Rails.application.routes.draw do
       get 'autocomplete'
     end
   end
-  devise_for :users, controllers: { registrations: 'registrations' }
+  #devise_for :users, controllers: { registrations: 'registrations' }
 
   get 'my' => 'home#my', as: :my
   get 'latest' => 'home#latest', as: :latest

@@ -5,10 +5,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
   def build_profile_path(user)
-    profile_path(id: user.username)
+    profile_path(id: user.id)
   end
   helper_method :build_profile_path
 
@@ -30,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   def disallow_non_premium(subphez)
     return true unless subphez.is_premium_only
-    unless user_signed_in? and current_user.is_premium
+    unless current_user and current_user.is_premium
       redirect_to root_path, alert: 'You must be a premium user to access that content. Please consider buying some Phez Premium.'
       return false
     end
@@ -41,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def throttle
-    return true unless user_signed_in?
+    return true unless current_user
     return true if current_user.is_admin || current_user.throttle_exempt
     if current_user.throttled_until
       if current_user.throttled_until > DateTime.now
@@ -62,7 +60,7 @@ class ApplicationController < ActionController::Base
   end
 
   def frozen_check!
-    return true unless user_signed_in?
+    return true unless current_user
     if current_user.is_frozen
       redirect_to root_path, alert: 'Your account has been frozen due to suspicious activity or attempting to game the system.'
       return false
@@ -70,11 +68,4 @@ class ApplicationController < ActionController::Base
     true
   end
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :bitcoin_address) }
-  end
 end

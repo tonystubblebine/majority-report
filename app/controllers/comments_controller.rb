@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user
   before_action :throttle, only: [:create]
   before_action :frozen_check!
 

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730013745) do
+ActiveRecord::Schema.define(version: 20161222172303) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "remember_token", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "email",          limit: 65535
+  end
 
   create_table "comment_votes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4, null: false
@@ -38,6 +45,21 @@ ActiveRecord::Schema.define(version: 20150730013745) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "login_accounts", force: :cascade do |t|
+    t.string   "type",              limit: 255
+    t.integer  "account_id",        limit: 4
+    t.string   "remote_account_id", limit: 255
+    t.string   "name",              limit: 255
+    t.string   "login",             limit: 255
+    t.string   "picture_url",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remote_token",      limit: 255
+  end
+
+  add_index "login_accounts", ["account_id"], name: "index_login_accounts_on_account_id", using: :btree
+  add_index "login_accounts", ["type"], name: "index_login_accounts_on_type", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id",          limit: 4,     null: false
@@ -160,6 +182,24 @@ ActiveRecord::Schema.define(version: 20150730013745) do
     t.string   "funding_source",      limit: 255
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "roles_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
+
   create_table "subphezes", force: :cascade do |t|
     t.integer  "user_id",         limit: 4,                     null: false
     t.string   "path",            limit: 255,                   null: false
@@ -216,8 +256,12 @@ ActiveRecord::Schema.define(version: 20150730013745) do
     t.boolean  "is_confirmed",                         default: false
     t.boolean  "is_frozen",                            default: false
     t.boolean  "is_reward_ineligible",                 default: false
+    t.string   "provider",                 limit: 255
+    t.string   "uid",                      limit: 255
+    t.integer  "account_id",               limit: 4
   end
 
+  add_index "users", ["account_id"], name: "index_users_on_account_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|

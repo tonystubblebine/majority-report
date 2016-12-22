@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :require_user, except: [:show]
   before_action :set_post, only: [:edit, :update, :destroy]
   before_action :throttle, only: [:create]
   before_action :frozen_check!, only: [:new, :edit, :create, :update, :destroy]

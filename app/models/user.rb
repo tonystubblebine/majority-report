@@ -1,14 +1,11 @@
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, authentication_keys: [:username]
-
-  validates :username,
-            uniqueness: { case_sensitive: false }, 
-            format: { with: /\A[a-zA-Z0-9\-_]+\Z/, message: 'is invalid. must consist only of letters, numbers, dashes and/or underscores' },
-            length: { minimum: 1, maximum: 30 },
-            presence: true,
-            allow_blank: false
-  validates :password, if: :password_present?, presence: true, length: { minimum: 6, maximum: 100 }, allow_blank: false, confirmation: true
+class User < BigAuth::User
+  #validates :username,
+  #          uniqueness: { case_sensitive: false }, 
+  #          format: { with: /\A[a-zA-Z0-9\-_]+\Z/, message: 'is invalid. must consist only of letters, numbers, dashes and/or underscores' },
+  #          length: { minimum: 1, maximum: 30 },
+  #          presence: true,
+  #          allow_blank: false
+  #validates :password, if: :password_present?, presence: true, length: { minimum: 6, maximum: 100 }, allow_blank: false, confirmation: true
   validates :bitcoin_address, format: { with: /\A(1|3)[a-zA-Z1-9]{26,33}\z/, message: 'is invalid' }, allow_blank: true
 
   has_many :votes, dependent: :destroy
@@ -28,6 +25,10 @@ class User < ActiveRecord::Base
   validate :ensure_email_unique
 
   before_create :set_secret
+
+  def username
+    id.to_s
+  end
 
   def set_secret
     self.secret = SecureRandom.hex.slice(0, 10)
