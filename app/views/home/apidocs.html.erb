@@ -2,20 +2,13 @@
 
 <h2>API Documentation</h2>
 
-<p>The Phez API includes access to commonly accessed pages and resources on Phez. There are several resources accessible via the Phez API that do not require authentication. These are even available cross-origin, so you can do things like embed a user's post feed on another web page. <small>(<%= link_to 'More on CORS', 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS' %>)</small></p>
-
-<p>Note: the Phez source code is <%= link_to 'available on GitHub', 'https://github.com/phezco/phez' %> if you'd like to dig deeper into our API implementation.</p>
-
-<p>Also be sure to check the <%= link_to 'Phez.co GitHub page', 'https://github.com/phezco' %> to see any example applications. Currently we have posted:</p>
-<ul>
-  <li><%= link_to 'Phez Public API Example Using HTML, JavaScript and jQuery', 'https://github.com/phezco/phez-public-api-example-html-javascript' %></li>
-</ul>
+<p>The Majority Report API includes access to commonly accessed pages and resources. There are several resources accessible via the API that do not require authentication. These are even available cross-origin, so you can do things like embed a user's post feed on another web page. <small>(<%= link_to 'More on CORS', 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS' %>)</small></p>
 
 <h3>Public API Methods</h3>
 
 <br/>
 
-<h4>All Posts (Phez Homepage)</h4>
+<h4>All Posts (Homepage)</h4>
 
 <pre><code>GET /api/v1/posts/all</code></pre>
 <table class="api-table">
@@ -39,7 +32,7 @@
 
 <pre><code>[{"id":192,"title":"Hosting a Party? Boil Water to get Clear Ice Cubes.","url":"http://phez.co/p/lifehacks/192/hosting-a-party-boil-water-to-get-clear-ice-cubes","submitted_by":"LoneSeeker777","subphez":"lifehacks","comments_url":"http://phez.co/p/lifehacks/192/hosting-a-party-boil-water-to-get-clear-ice-cubes","comment_count":8,"vote_total":6,"upvote_total":6,"downvote_total":0,"created_at":"2015-07-18T23:29:57.944Z","updated_at":"2015-07-19T12:25:02.555Z"}, ...]</code></pre>
 
-<p>Ruby implementation: we recommend using a gem like RestClient to access the Phez API. First make sure you install the ruby gems:</p>
+<p>Ruby implementation: we recommend using a gem like RestClient to access the API. First make sure you install the ruby gems:</p>
 
 <pre><code>gem install rest-client
 gem install json
@@ -63,7 +56,7 @@ end
 
 <pre><code>curl "http://phez.co/api/v1/posts/all?page=2"</code></pre>
 
-<p>Pagination works similarly for other API endpoints at Phez that return an array of values. We currently do not report total page counts. Number of items per page should be assumed to be 20. If you receive less than 20 results, assume that you've reached the last page of results.</p>
+<p>Pagination works similarly for other API endpoints that return an array of values. We currently do not report total page counts. Number of items per page should be assumed to be 20. If you receive less than 20 results, assume that you've reached the last page of results.</p>
 
 <h4>Top Subphezes</h4>
 
@@ -214,7 +207,7 @@ end
 <h3>Authenticated API Methods</h3>
 <br/>
 
-<p>Phez uses OAuth 2.0 for authenticating user accounts. To get started, first <%= link_to 'Create an Account', '/users/sign_up' %> then head over to <%= link_to 'Manage Applications', '/oauth/applications' %> and add a new application.</p>
+<p>We use OAuth 2.0 for authenticating user accounts. To get started, first <%= link_to 'Create an Account', '/users/sign_up' %> then head over to <%= link_to 'Manage Applications', '/oauth/applications' %> and add a new application.</p>
 
 
 <h4>User Details</h4>

@@ -1,9 +1,9 @@
 <% content_for :teaser do %>
-  Today's top posts on Phez.co
+  Today's top posts on Majority.Report
 <% end %>
 
 <% content_for :header do %>
-  <h1>Phez Top Posts for <%= @date_str %></h1>
+  <h1>Majority Report Top Posts for <%= @date_str %></h1>
 <% end %>
 
 <% content_for :unsubscribe do %>
@@ -13,6 +13,6 @@
 <% i = 1 %>
 <% @posts.each do |post| %>
   <h3><%= i %>. <%= link_to raw(post.title), post.full_url %></h3>
-  <p><%= link_to 'view comments on phez', view_post_url(path: post.subphez.path, post_id: post.id, guid: post.guid) %></p>
+  <p><%= link_to 'view comments', view_post_url(path: post.subphez.path, post_id: post.id, guid: post.guid) %></p>
   <% i += 1 %>
 <% end %>
