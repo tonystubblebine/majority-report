@@ -1,8 +1,7 @@
 <div class="col-lg-3">
   <div class="well sidebar-nav">
     <h3>Submission Details</h3>
-    Subphez: <%= link_to @post.subphez.title, build_subphez_path(@post.subphez) %> <br/>
-    Submitted by: <%= link_to @post.user.username, build_profile_path(@post.user) %> <br/>
+    Submitted by: <%= link_to @post.user.name, build_profile_path(@post.user) %> <br/>
     Submitted: <%= time_ago_in_words(@post.created_at) %> ago
     <br/>
     <% if current_user and @post.owner?(current_user) and @post.editable? %>
