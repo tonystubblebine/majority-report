@@ -41,7 +41,7 @@
               <li>
                 <a href="/messages" class="<%= 'orange' if current_user.orange %>">
                   <i class="fa fa-envelope-o"></i>&nbsp;
-                  Hello, <%= current_user.username %>
+                  Hello, <%= current_user.name %>
                 </a>
               </li>
               <li><%= link_to 'Submit', "/submit" %></li>
