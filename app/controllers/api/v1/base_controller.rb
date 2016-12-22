@@ -2,7 +2,7 @@ class Api::V1::BaseController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :set_cors_headers
 
-  clear_respond_to
+  #clear_respond_to
   respond_to :json
 
   rescue_from ActiveRecord::RecordNotFound do |e|
