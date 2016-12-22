@@ -1,0 +1,14 @@
+<div id="bigauth-login">
+  <% if flash[:error] -%>
+    <div class="error">
+      <p>
+        <%= flash[:error] %>
+      </p>
+    </div>
+  <% end -%>
+  <div class="information">
+    <h1>Login/Signup</h1>
+    Login or signup with your Facebook account
+  </div>
+  <%= facebook_login_button %>
+</div>
