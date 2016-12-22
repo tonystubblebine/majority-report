@@ -390,7 +390,7 @@ DEPENDENCIES
   rails_12factor
   redcarpet
   regressor
-  responders
+  responders (~> 2.0)
   rest-client
   rspec-rails
   sass-rails (~> 5.0)
