@@ -16,6 +16,21 @@
  *= require jquery-ui
  */
 
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a, a:visited {
+  color: #000;
+}
+.navbar-default .navbar-brand,
+h1 {
+  font-size: 36px;
+  color: #000;
+}
+h2 {
+  font-size: 24px;
+}
 /* Admin Styles */
 div.dashboard-panel {
   border-radius: 10px;
@@ -94,7 +109,7 @@ div.thumbnail {
   font-size: 1.5em !important;
 }
 .voted {
-  color: #0066ff !important;
+  color: #000 !important;
 }
 .post-title {
   max-width: 500px;

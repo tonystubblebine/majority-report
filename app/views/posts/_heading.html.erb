@@ -37,7 +37,7 @@
     <%= link_to raw(@post.title), @post.url_linkable, class: 'post-link' %>
     <span class="domain">(<%= link_to @post.domain, @post.url_linkable %>)</span>
     <div style="clear: both"></div>
-    <p class="submitted">submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, build_profile_path(@post.user) %> to <%= link_to "/p/#{@post.subphez.path}", build_subphez_path(@post.subphez) %> | <%= link_to "#{@post.comment_count} comments", build_post_path(@post) %>
+    <p class="submitted">submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.name, build_profile_path(@post.user) %> | <%= link_to "#{@post.comment_count} comments", build_post_path(@post) %>
       <% if current_user %>
         <% if (@post.owner?(current_user) || @post.moderateable?(current_user)) %>
           | <%= link_to 'delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

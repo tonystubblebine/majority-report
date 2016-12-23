@@ -13,6 +13,6 @@
     <%= link_to raw(@post.title), @post.url_linkable, class: 'post-link' %>
     <span class="domain">(<%= link_to @post.domain, @post.url_linkable %>)</span>
     <div style="clear: both"></div>
-    <p class="submitted">submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, build_profile_path(@post.user) %> to <%= link_to "/p/#{@post.subphez.path}", build_subphez_path(@post.subphez) %> | <%= link_to "#{@post.comment_threads.size} comments", build_post_path(@post) %></p>
+    <p class="submitted">submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, build_profile_path(@post.user) %> | <%= link_to "#{@post.comment_threads.size} comments", build_post_path(@post) %></p>
   </div>
 </div>
