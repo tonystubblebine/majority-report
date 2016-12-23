@@ -14,7 +14,7 @@ end
     <% if @comment.is_deleted %>
       [deleted]
     <% else %>
-      <%= link_to @comment.user.username, build_profile_path(@comment.user) %>
+      <%= link_to @comment.user.name, build_profile_path(@comment.user) %>
       <span id="comment-vote-count-<%= @comment.id %>"><%= @comment.vote_total %></span> points <small>( <span class="comment-upvote-total">+<%= @comment.upvote_total %></span>|<span class="comment-downvote-total">-<%= @comment.downvote_total %></span> )</small>
     <% end %>
      :: <%= time_ago_in_words(@comment.created_at) %> ago:
