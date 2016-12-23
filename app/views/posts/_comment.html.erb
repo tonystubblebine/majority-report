@@ -48,9 +48,6 @@ end
 
       <%= link_to 'reply', "javascript:Phez.reply(#{@comment.id})" %> &nbsp;
 
-      <% if !@comment.owner?(current_user) %>
-          &nbsp; <%= link_to 'reward with premium', premium_rewards_path(:rewardable_id => @comment.id, :rewardable_type => 'Comment'), class: 'btn btn-success btn-xs reward-comment-premium' %>
-      <% end %>
     <% end %>
 
     <% if @comment.is_rewarded %>

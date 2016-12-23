@@ -42,9 +42,6 @@
         <% if (@post.owner?(current_user) || @post.moderateable?(current_user)) %>
           | <%= link_to 'delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-        <% unless @post.owner?(current_user) || !@show_context %>
-          &nbsp;&nbsp; <%= link_to 'reward with premium', premium_rewards_path(:rewardable_id => @post.id, :rewardable_type => 'Post'), class: 'btn btn-success btn-xs' %>
-        <% end %>
       <% end %>
       <% if @post.is_rewarded %>
         &nbsp;<i>rewarded with premium</i>
