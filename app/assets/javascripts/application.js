@@ -20,7 +20,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-
   Phez = new PhezApp();
   Phez.applyClickHandlers();
 
