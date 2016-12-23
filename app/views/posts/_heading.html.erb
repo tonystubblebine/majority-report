@@ -22,9 +22,9 @@
       <span class="vote_count" id="vote-count-<%= @post.id %>"><%= @post.vote_total %></span><br/>
       <a href="javascript:Phez.downvote(<%= @post.id %>)"><i class="vote-arrow fa fa-arrow-down post-downvote-<%= @post.id %> <%= 'voted' if @downvoted %>"></i></a>
     <% else %>
-      <a href="/users/sign_up"><i class="vote-arrow fa fa-arrow-up"></i></a> <br/>
+      <a href="/login"><i class="vote-arrow fa fa-arrow-up"></i></a> <br/>
       <span class="vote_count" id="vote-count-<%= @post.id %>"><%= @post.vote_total %></span><br/>
-      <a href="/users/sign_up"><i class="vote-arrow fa fa-arrow-down"></i></a>
+      <a href="/login"><i class="vote-arrow fa fa-arrow-down"></i></a>
     <% end %>
   </div>
   <div class="col-md-11 col-sm-11 col-xs-10">
