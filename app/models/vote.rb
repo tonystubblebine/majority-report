@@ -2,6 +2,7 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
+  scope :last_twelve_hours, -> { where('created_at > ?', 12.hours.ago) }
   scope :last_thirtysix_hours, -> { where('created_at > ?', 36.hours.ago) }
   scope :last_twentyfour_hours, -> { where('created_at > ?', 24.hours.ago) }
 

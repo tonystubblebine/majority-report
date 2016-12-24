@@ -7,7 +7,7 @@ class Ranker
   def self.pointify_daily!
     Post.update_all(daily_points: 0)
     post_hash = {}
-    Vote.last_twentyfour_hours.each do |vote|
+    Vote.last_twelve_hours.each do |vote|
       if post_hash[vote.post_id]
         post_hash[vote.post_id] += vote.vote_value
       else
@@ -25,7 +25,7 @@ class Ranker
 
   def self.pointify!
     post_hash = {}
-    Vote.last_thirtysix_hours.each do |vote|
+    Vote.last_twentyfour_hours.each do |vote|
       if post_hash[vote.post_id]
         post_hash[vote.post_id] += points(vote)
       else
