@@ -101,24 +101,20 @@ class Ranker
 
         # Weight it based on when the post was created (or how many votes it has)
         weight = 1
-        if post.votes.size == 1
-          weight = 0.35
+        if post.created_at > 3.hours.ago
+          weight = 1.33
+        elsif post.created_at > 6.hours.ago
+          weight = 1.25
+        elsif post.created_at > 12.hours.ago
+          weight = 1.12
+        elsif post.created_at > 24.hours.ago
+          weight = 0.75 
+        elsif post.created_at > 48.hours.ago
+          weight = 0.5 
+        elsif post.created_at > 96.hours.ago
+          weight = 0.25
         else
-          if post.created_at > 3.hours.ago
-            weight = 1.33
-          elsif post.created_at > 6.hours.ago
-            weight = 1.25
-          elsif post.created_at > 12.hours.ago
-            weight = 1.12
-          elsif post.created_at > 24.hours.ago
-            weight = 1.06
-          elsif post.created_at > 48.hours.ago
-            weight = 0.95
-          elsif post.created_at > 96.hours.ago
-            weight = 0.8
-          else
-            weight = 0.7
-          end
+          weight = 0.1
         end
         adjusted_hot_score = (adjusted_hot_score.to_f * weight).to_i
 
