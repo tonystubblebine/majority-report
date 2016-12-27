@@ -45,11 +45,11 @@ class Ranker
   def self.points(vote)
     if vote.upvote?
       if vote.created_at > 6.hours.ago
-        return 1.25
+        return 4.0
       elsif vote.created_at > 12.hours.ago
-        return 1.1
+        return 3.0
       elsif vote.created_at > 24.hours.ago
-        return 1
+        return 2.0 
       else
         return 0.75
       end
