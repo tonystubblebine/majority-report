@@ -2,8 +2,7 @@ class HomeController < ApplicationController
   before_action :require_user, only: [:my]
 
   def index
-    @posts = Post.includes(:votes).order("created_at").sort_by{|a| -(a.votes.count - ((Time.now - a.created_at) / (24 * 60 * 60)))}
-             .paginate(page: params[:page])
+    @posts = Post.includes(:votes).order("created_at").limit(50).sort_by{|a| -(a.votes.count - ((Time.now - a.created_at) / (24 * 60 * 60)))}
     @vote_hash = current_user ? Vote.vote_hash(current_user, @posts) : {}
     @newsletter_subscriber = NewsletterSubscriber.new
   end
